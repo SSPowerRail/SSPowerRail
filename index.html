@@ -23,9 +23,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: #000
 .nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; background: #00b4c8; color: #000028; padding: 10px 28px; transition: background 0.2s; }
 .nav-cta:hover { background: #00d4eb; }
 
-/* HERO - static, no video */
+/* HERO - with video background */
 .hero { position: relative; min-height: 100vh; background: #000028; display: grid; grid-template-columns: 1fr 440px; align-items: stretch; padding-top: 68px; overflow: hidden; }
-.hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,180,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,200,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+.video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; }
+.video-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(0,0,40,0.92) 0%, rgba(0,0,40,0.6) 100%); z-index: 1; }
 .hero-left { position: relative; z-index: 2; padding: 80px 56px 70px; display: flex; flex-direction: column; justify-content: center; }
 .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #00b4c8; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
 .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: #00b4c8; }
@@ -245,6 +247,7 @@ textarea.form-input { resize: vertical; min-height: 140px; }
   </div>
   <ul class="nav-links">
     <li><a href="#about">Profile</a></li>
+    <li><a href="#showreel">Showreel</a></li>
     <li><a href="#challenges">Challenges</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#markets">Markets</a></li>
@@ -256,6 +259,12 @@ textarea.form-input { resize: vertical; min-height: 140px; }
 
 <!-- HERO -->
 <section class="hero">
+  <div class="video-bg">
+    <video autoplay loop muted playsinline>
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
   <div class="hero-left">
     <p class="hero-eyebrow">Senior Independent Technical Consultant</p>
     <h1>Railway &amp; Grid<br><span class="ac">Electrification</span><br>&amp; Power<br>Systems</h1>
@@ -331,6 +340,26 @@ textarea.form-input { resize: vertical; min-height: 140px; }
           <div class="cred"><div class="cred-t">Switchgear Platforms</div><div class="cred-s">Railway Traction: Siemens SF6 25kV AC &middot; Schneider SF6 33kV AC &middot; ABB SMOS Light 25kV AIS &middot; Hawker Siddeley 750V DC NDC Lightning &middot; HV Distribution: GIS &amp; AIS switchgear 11kV&#8211;132kV &middot; DNO substation primary plant</div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divl"></div>
+
+<!-- SHOWREEL -->
+<section class="sec" id="showreel" style="background:#000028;text-align:center;">
+  <div class="sec-inner">
+    <p class="lbl center" style="color:#00b4c8;">Consultancy Showreel</p>
+    <h2 class="stitle wh" style="text-align:center;margin-bottom:16px;">16 Years of Expertise.<br><span class="tl">Independently Delivered.</span></h2>
+    <p class="sbody" style="color:rgba(255,255,255,0.54);margin:0 auto 44px;text-align:center;">A brief overview of the programmes, disciplines, and advisory services delivered across major UK rail infrastructure.</p>
+    <div style="display:flex;justify-content:center;">
+      <video
+        src="showreel.mp4"
+        controls
+        playsinline
+        style="width:100%;max-width:420px;border:2px solid rgba(0,180,200,0.3);box-shadow:0 8px 48px rgba(0,0,0,0.6);">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </section>
