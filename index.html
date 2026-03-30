@@ -24,10 +24,13 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: #000
 .nav-cta:hover { background: #00d4eb; }
 
 /* HERO - with video background */
-.hero { position: relative; min-height: 100vh; background: #000028; display: grid; grid-template-columns: 1fr 440px; align-items: stretch; padding-top: 68px; overflow: hidden; }
+.hero { position: relative; min-height: 100vh; background: #000028; display: block; padding-top: 68px; overflow: hidden; }
 .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; }
 .video-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
-.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(0,0,40,0.92) 0%, rgba(0,0,40,0.6) 100%); z-index: 1; }
+.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(0,0,40,0.88) 0%, rgba(0,0,40,0.45) 60%, rgba(0,0,40,0.7) 100%); z-index: 1; }
+.hero-left { position: relative; z-index: 2; padding: 80px 56px 80px 56px; max-width: 700px; display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - 68px); }
+.hero-right { position: absolute; top: 68px; right: 0; width: 400px; height: calc(100% - 68px); z-index: 2; background: linear-gradient(155deg, rgba(0,26,64,0.72) 0%, rgba(0,8,32,0.82) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 52px 38px; border-left: 1px solid rgba(0,180,200,0.18); backdrop-filter: blur(6px); }
+.hero-right::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,180,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,200,0.04) 1px, transparent 1px); background-size: 36px 36px; }
 .hero-left { position: relative; z-index: 2; padding: 80px 56px 70px; display: flex; flex-direction: column; justify-content: center; }
 .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #00b4c8; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
 .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: #00b4c8; }
@@ -204,8 +207,8 @@ textarea.form-input { resize: vertical; min-height: 140px; }
 @media (max-width: 1000px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 56px 24px 44px; }
+  .hero { display: block; }
+  .hero-left { padding: 56px 24px 44px; min-height: calc(100vh - 68px); max-width: 100%; }
   .hero-right { display: none; }
   .sec { padding: 68px 24px; }
   .divl { margin: 0 24px; }
